@@ -3,13 +3,13 @@ package org.firstinspires.ftc.teamcode.pedroPathing; // make sure this aligns wi
 import com.pedropathing.follower.Follower;
 import com.pedropathing.geometry.BezierLine;
 import com.pedropathing.geometry.Pose;
-import com.pedropathing.paths.Path;
 import com.pedropathing.paths.PathChain;
 import com.pedropathing.util.Timer;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import  com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
+
+import org.firstinspires.ftc.teamcode.Essentials.Constants;
+import org.firstinspires.ftc.teamcode.Essentials.LLHardware;
 
 @Autonomous(name = "PedroMovementTesting", group = "Testing")
 public class PedroMovementTesting extends OpMode {
