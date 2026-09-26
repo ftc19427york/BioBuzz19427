@@ -71,16 +71,12 @@ public class PIDApril extends OpMode {
 
 
         if (!automatedDrive) {
-
-
-
             if (!slowMode) follower.setTeleOpDrive(
                     -gamepad2.left_stick_y,
                     -gamepad2.left_stick_x,
                     -gamepad2.right_stick_x,
                     true // Robot Centric
             );
-
                 //This is how it looks with slowMode on
             else follower.setTeleOpDrive(
                     gamepad2.left_stick_y * slowModeMultiplier,
@@ -89,7 +85,6 @@ public class PIDApril extends OpMode {
                     true // Robot Centric
             );
         }
-
 //        robot.setAllMotorPower(pidOutput);
 
         //Data

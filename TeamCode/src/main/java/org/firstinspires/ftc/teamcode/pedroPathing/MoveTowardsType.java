@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.pedroPathing;
 
 import com.pedropathing.follower.Follower;
+import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -42,6 +43,7 @@ public class MoveTowardsType extends OpMode {
         telemetry.addData("Driver Controlled:", driverControlled);
     }
     public void MoveTowards(String type) {
+        LLResult data;
         switch (type) {
             case "pollen": {
                 llDetection.changePipeline(3);

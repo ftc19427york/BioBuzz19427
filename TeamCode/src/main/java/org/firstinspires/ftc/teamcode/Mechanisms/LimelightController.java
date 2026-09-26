@@ -24,7 +24,6 @@ public class LimelightController extends OpMode {
     @Override
     public void loop() {
 //        LLResult result = limelight.getLatestResult();
-//
 //        telemetry.addData("Target X",result.getTx());
 //        telemetry.addData("Target Y",result.getTy());
 //        telemetry.addData("Target Area",result.getTa());
