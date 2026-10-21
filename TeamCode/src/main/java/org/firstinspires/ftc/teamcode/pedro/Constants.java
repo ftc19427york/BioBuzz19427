@@ -1,14 +1,5 @@
 package org.firstinspires.ftc.teamcode.pedro;
 
-<<<<<<< Updated upstream
-import com.pedropathing.follower.Follower;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-
-public class Constants {
-    public static Follower create(HardwareMap h) {
-        // return new Follower(Drivetrain, Localizer, Foresight);
-        return null;
-=======
 import com.pedropathing.algorithm.Foresight;
 import com.pedropathing.algorithm.ForesightConfig;
 import com.pedropathing.controllers.Controller;
@@ -85,6 +76,5 @@ public class Constants {
                 new Mecanum(h, drivetrainConfig),
                 new Foresight(foresightConfig)
         );
->>>>>>> Stashed changes
     }
 }

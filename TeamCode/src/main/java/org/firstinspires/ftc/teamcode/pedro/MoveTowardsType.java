@@ -71,9 +71,9 @@ public class MoveTowardsType extends OpMode {
             if (forwardSpeed >= 0.4) {
                 forwardSpeed = 0.4;
             }
-            if (data.isValid() == true)
+            if (data.isValid())
                 {
-                    if (area <= 3 && ) {
+                    if (area <= 3 && true) {
                     limelight.pipelineSwitch(0);
                 }
                 }
