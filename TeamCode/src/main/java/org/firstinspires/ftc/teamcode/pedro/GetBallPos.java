@@ -3,11 +3,15 @@ package org.firstinspires.ftc.teamcode.pedro;
 import com.pedropathing.follower.Follower;
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
+import java.util.Arrays;
+
+@Autonomous(name = "Get Ball Position", group = "math")
 public class GetBallPos extends OpMode {
 
-    double cameraHeight = 1;
+    double cameraHeight = 0.5;
 
     double cameraPitch = 0;
 
@@ -19,7 +23,6 @@ public class GetBallPos extends OpMode {
     LLResult data;
     private Limelight3A limelight;
     private Follower follower;
-    Hardware robot = new Hardware();
 
     @Override
     public void init() {
@@ -40,10 +43,11 @@ public class GetBallPos extends OpMode {
 
         double robotX = follower.pose().x();
         double robotY = follower.pose().y();
+
         double robotHeading = follower.pose().heading();
 
-        double txRadians = tX * 0.0174533;
-        double tyRadians = tY * 0.0174533;
+        double txRadians = tX * 0.0174533; // converts tX degrees to Radians
+        double tyRadians = tY * 0.0174533; // converts tY degrees to Radians
 
         double angleToTarget = cameraPitch + tyRadians;
         double groundDist = (targetHeight - cameraHeight) / Math.tan(angleToTarget);
@@ -56,9 +60,23 @@ public class GetBallPos extends OpMode {
         double targetXField = robotX + (targetXRobot * Math.cos(robotHeading) - targetYRobot * Math.sin(robotHeading));
         double targetYField = robotY + (targetXRobot * Math.sin(robotHeading) + targetYRobot * Math.cos(robotHeading));
 
-        Translation2d targetFieldPosition = new Translation2d(targetXField, targetYField);
+        telemetry.addLine("Bot");
+        telemetry.addData("Bot Position",follower.pose());
 
-        telemetry.addData("Position",follower.pose());
-        telemetry.addData("Ball Position","N/A");
+        telemetry.addLine("Target");
+        telemetry.addData("Ball Position X", targetXField);
+        telemetry.addData("Ball Position Y", targetYField);
+
+        telemetry.addLine("Debug");
+        telemetry.addData("tX",tX);
+        telemetry.addData("tY",tY);
+        telemetry.addData("robotX",robotX);
+        telemetry.addData("robotY",robotY);
+        telemetry.addData("robotHeading",robotHeading);
+        telemetry.addData("targetXRobot",targetXRobot);
+        telemetry.addData("targetYRobot",targetYRobot);
+
+        telemetry.update();
+        follower.update();
     }
 }
